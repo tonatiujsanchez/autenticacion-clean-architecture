@@ -13,7 +13,6 @@ async function main() {
 
     // await db
 
-
     // inicio de nuestro server
     const options = {
         port: envs.port,
