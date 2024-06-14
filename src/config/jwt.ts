@@ -20,7 +20,6 @@ export class JwtAdapter {
 
     static async generateToken(payload: Object, duration:string = '2h'):Promise<string | null> {
 
-        // FIXME: Generate JWT
         return new Promise(( resolve )=>{
             jwt.sign( payload, SEED_JWT, { expiresIn: duration }, (error, token)=>{
 

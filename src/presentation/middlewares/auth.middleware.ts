@@ -24,7 +24,7 @@ export class AuthMiddleware {
 
 
         try {
-            // TODO:
+            
             const payload = await JwtAdapter.verifyToken<{ id: string }>(token)
 
             if( !payload ){
