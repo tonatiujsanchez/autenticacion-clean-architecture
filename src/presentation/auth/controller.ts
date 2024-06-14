@@ -2,6 +2,7 @@ import { Request, Response } from "express"
 import { CustomError, RegisterUserDto } from "../../domain"
 import { AuthRepository } from '../../domain/repositories/auth.repository';
 import { JwtAdapter } from "../../config";
+import { UserModel } from "../../data/mongodb";
 
 
 export class AuthController {
@@ -31,10 +32,22 @@ export class AuthController {
 
                 res.json({
                     user,
-                    token: await JwtAdapter.generateToken({ email:user.email })
+                    token: await JwtAdapter.generateToken({ id:user.id })
                 })
             })
             .catch(error => this.handleError(error, res))
+    }
+
+
+    getUsers = (req:Request, res:Response) => {
+
+        UserModel.find()
+            .then(users => res.json({
+                users,
+                user: req.body.user
+            }))
+            .catch(error => this.handleError(error, res))
+
     }
 
     loginUser = (req:Request, res:Response) => {
