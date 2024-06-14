@@ -26,6 +26,10 @@ export class CustomError extends Error {
         return new CustomError(404, message)
     }
 
+    static conflict( message: string ) {
+        return new CustomError(409, message)
+    }
+
     static internalServer( message: string = 'Internal server Error' ) {
         return new CustomError(500, message)
     }
