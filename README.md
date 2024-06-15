@@ -10,3 +10,22 @@ Proyecto de autenticación con Node.js estructurado de forma lógica aplicando l
 - Docker
 - Json Web Token (JWT)
 
+### Instalación local
+
+1. Clonar archivo **.env.template** y renombrar a **.env**.
+2. Instalar dependencias.
+```
+npm install
+```
+3. Levantar la base de datos
+```
+docker-compose up -d
+```
+
+4. Ejecutar proyecto en modo desarrollo
+```
+npm run dev
+```
+
+
+
